@@ -1,11 +1,5 @@
-import Layout from "./Layout";
-
 const Transactions = () => {
-  return (
-    <Layout>
-      <h1>Transaction Content</h1>
-    </Layout>
-  );
-}
+  return <h1>Transaction Content</h1>;
+};
 
-export default Transactions
+export default Transactions;
