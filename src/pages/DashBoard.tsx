@@ -1,8 +1,11 @@
+import Layout from "./Layout";
 
 const DashBoard = () => {
   return (
-    <div>DashBoard</div>
-  )
+    <Layout>
+      <h1>Dashboard Content</h1>
+    </Layout>
+  );
 }
 
 export default DashBoard
