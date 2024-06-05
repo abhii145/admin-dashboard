@@ -1,7 +1,17 @@
-import { RiCoupon3Fill, RiDashboardFill, RiShoppingBag3Fill } from "react-icons/ri";
+import {
+  RiCoupon3Fill,
+  RiDashboardFill,
+  RiShoppingBag3Fill,
+} from "react-icons/ri";
 import { IoIosPeople } from "react-icons/io";
 import { AiFillFileText } from "react-icons/ai";
-import { FaChartBar, FaChartLine, FaChartPie, FaGamepad, FaStopwatch } from "react-icons/fa";
+import {
+  FaChartBar,
+  FaChartLine,
+  FaChartPie,
+  FaGamepad,
+  FaStopwatch,
+} from "react-icons/fa";
 
 const sidebarListData = [
   {
@@ -26,7 +36,6 @@ const sidebarListData = [
   },
 ];
 
-
 const ChartsData = [
   {
     url: "/admin/chart/bar",
@@ -42,7 +51,7 @@ const ChartsData = [
     url: "/admin/chart/line",
     text: "Line",
     Icon: FaChartLine,
-  }
+  },
 ];
 
 const AppsData = [
@@ -63,5 +72,32 @@ const AppsData = [
   },
 ];
 
+const WidgetItemData = [
+  {
+    percent: 40,
+    amount: true,
+    value: 340000,
+    heading: "Revenue",
+    color: "rgb(0,115,255)",
+  },
+  {
+    percent: -14,
+    value: 400,
+    heading: "Users",
+    color: "rgb(0,198,202)",
+  },
+  {
+    percent: 80,
+    value: 23000,
+    heading: "Transactions",
+    color: "rgb(255,196,0)",
+  },
+  {
+    percent: 30,
+    value: 1000,
+    heading: "Products",
+    color: "rgb(76,0,255)",
+  },
+];
 
-export { sidebarListData, ChartsData, AppsData };
+export { sidebarListData, ChartsData, AppsData, WidgetItemData };

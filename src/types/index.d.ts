@@ -7,3 +7,21 @@ declare type LiProps = {
   location: Location<string>;
   Icon: IconType;
 };
+
+
+
+declare type WidgetItemProps = {
+  heading: string;
+  value: number;
+  percent: number;
+  color: string;
+  amount?: boolean;
+}
+
+
+
+declare type CategoryItemProps ={
+  color: string;
+  value: number;
+  heading: string;
+}
