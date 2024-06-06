@@ -32,7 +32,7 @@ const TransactionManagement = () => {
     discount: 1200,
     shippingCharges: 0,
     tax: 200,
-    total: 4000 + 200 + 0 - 1200,
+    total: 4000 + 200 - 1200,
     orderItems,
     _id: "asdnasjdhbn",
   };
@@ -59,14 +59,9 @@ const TransactionManagement = () => {
   };
 
   return (
-    <main className="product-management">
-      <section
-        style={{
-          padding: "2rem",
-        }}
-      >
-        <h2>Order Items</h2>
-
+    <main className="p-4 space-y-6">
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">Order Items</h2>
         {order.orderItems.map((i) => (
           <ProductCard
             key={i._id}
@@ -79,40 +74,44 @@ const TransactionManagement = () => {
         ))}
       </section>
 
-      <article className="shipping-info-card">
-        <h1>Order Info</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <h5>User Info</h5>
+      <article className="bg-white p-6 rounded-lg shadow-md space-y-4">
+        <h1 className="text-2xl font-bold">Order Info</h1>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <h5 className="text-lg font-medium">User Info</h5>
           <p>Name: {order.name}</p>
           <p>
             Address:{" "}
             {`${order.address}, ${order.city}, ${order.state}, ${order.country} ${order.pinCode}`}
           </p>
 
-          <h5>Amount Info</h5>
-          <p>Subtotal: {order.subtotal}</p>
-          <p>Shipping Charges: {order.shippingCharges}</p>
-          <p>Tax: {order.tax}</p>
-          <p>Discount: {order.discount}</p>
-          <p>Total: {order.total}</p>
+          <h5 className="text-lg font-medium">Amount Info</h5>
+          <p>Subtotal: ${order.subtotal}</p>
+          <p>Shipping Charges: ${order.shippingCharges}</p>
+          <p>Tax: ${order.tax}</p>
+          <p>Discount: ${order.discount}</p>
+          <p>Total: ${order.total}</p>
 
-          <h5>Status Info</h5>
+          <h5 className="text-lg font-medium">Status Info</h5>
           <p>
             Status:{" "}
             <span
               className={
                 order.status === "Delivered"
-                  ? "purple"
+                  ? "text-purple-600"
                   : order.status === "Shipped"
-                  ? "green"
-                  : "red"
+                  ? "text-green-600"
+                  : "text-red-600"
               }
             >
               {order.status}
             </span>
           </p>
 
-          <button type="button" onClick={updateHandler}>
+          <button
+            type="button"
+            onClick={updateHandler}
+            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+          >
             Process Status
           </button>
         </form>
@@ -134,12 +133,19 @@ const ProductCard = ({
   quantity: number;
   _id: string;
 }) => (
-  <div className="transaction-product-card">
-    <img src={photo} alt={name} />
-    <Link to={`/product/${_id}`}>{name}</Link>
-    <span>
-      ${price} X {quantity} = ${price * quantity}
-    </span>
+  <div className="bg-white p-4 rounded-lg shadow-md flex items-center space-x-4">
+    <img src={photo} alt={name} className="w-16 h-16 object-cover rounded-md" />
+    <div>
+      <Link
+        to={`/product/${_id}`}
+        className="text-lg font-semibold text-blue-600 hover:underline"
+      >
+        {name}
+      </Link>
+      <span className="block text-gray-500">
+        ${price} x {quantity} = ${price * quantity}
+      </span>
+    </div>
   </div>
 );
 
