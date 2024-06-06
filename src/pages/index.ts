@@ -14,6 +14,9 @@ const BarCharts = lazy(() => import("./charts/BarCharts"));
 const LineCharts = lazy(() => import("./charts/LineCharts"));
 const PieCharts = lazy(() => import("./charts/PieCharts"));
 
+
+const Coupon = lazy(() => import("./apps/Coupon"));
+
 export {
   DashBoard,
   Products,
@@ -24,5 +27,6 @@ export {
   TransactionManagement,
   BarCharts,
   LineCharts,
-  PieCharts,
+    PieCharts,
+  Coupon
 };
