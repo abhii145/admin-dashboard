@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   BarCharts,
+  Coupon,
   Customers,
   DashBoard,
   LineCharts,
@@ -26,16 +27,18 @@ const App = () => {
             <Route path="/admin/transactions" element={<Transactions />} />
             <Route path="/admin/customers" element={<Customers />} />
 
-            <Route path="/admin/chart/bar" element={<BarCharts />} />
-            <Route path="/admin/chart/line" element={<LineCharts />} />
-            <Route path="/admin/chart/pie" element={<PieCharts />} />
-
             <Route path="/admin/product/new" element={<NewProducts />} />
             <Route path="/admin/product/:id" element={<ProductManagement />} />
             <Route
               path="/admin/transaction/:id"
               element={<TransactionManagement />}
             />
+
+            <Route path="/admin/chart/bar" element={<BarCharts />} />
+            <Route path="/admin/chart/line" element={<LineCharts />} />
+            <Route path="/admin/chart/pie" element={<PieCharts />} />
+
+            <Route path="/admin/app/coupon" element={<Coupon />} />
           </Routes>
         </Layout>
       </Suspense>

@@ -9,8 +9,6 @@ import {
   FaChartBar,
   FaChartLine,
   FaChartPie,
-  FaGamepad,
-  FaStopwatch,
 } from "react-icons/fa";
 
 const sidebarListData = [
@@ -56,20 +54,10 @@ const ChartsData = [
 
 const AppsData = [
   {
-    url: "/admin/app/stopwatch",
-    text: "Stopwatch",
-    Icon: FaStopwatch,
-  },
-  {
     url: "/admin/app/coupon",
     text: "coupon",
     Icon: RiCoupon3Fill,
-  },
-  {
-    url: "/admin/app/toss",
-    text: "toss",
-    Icon: FaGamepad,
-  },
+  }
 ];
 
 const WidgetItemData = [
