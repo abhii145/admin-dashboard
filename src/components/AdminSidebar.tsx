@@ -1,122 +1,68 @@
-import SidebarList from "./SidebarList";
 import { AppsData, ChartsData, sidebarListData } from "../constants";
-import { Location, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { HiMenuAlt4 } from "react-icons/hi";
+import { Link, useLocation } from "react-router-dom";
+import { FaReact } from "react-icons/fa";
 
 const AdminSidebar = () => {
   const location = useLocation();
 
-    const [showModal, setShowModal] = useState<boolean>(false);
-    const [phoneActive, setPhoneActive] = useState<boolean>(
-      window.innerWidth < 1100
-    );
-
-    const resizeHandler = () => {
-      setPhoneActive(window.innerWidth < 1100);
-    };
-
-    useEffect(() => {
-      window.addEventListener("resize", resizeHandler);
-
-      return () => {
-        window.removeEventListener("resize", resizeHandler);
-      };
-    }, []);
-
-
   return (
-
-      <>
-      {phoneActive && (
-        <button id="hamburger" onClick={() => setShowModal(true)}>
-          <HiMenuAlt4 />
-        </button>
-      )}
-
-      <aside
-        style={
-          phoneActive
-            ? {
-                width: "20rem",
-                height: "100vh",
-                position: "fixed",
-                top: 0,
-                left: showModal ? "0" : "-20rem",
-                transition: "all 0.5s",
-              }
-            : {}
-        }
-      >
-        <h2>Logo.</h2>
-         <DashBoardDiv location={location} />
-      <ChartDiv location={location} />
-      <AppDiv location={location} />
-
-        {phoneActive && (
-          <button id="close-sidebar" onClick={() => setShowModal(false)}>
-            Close
-          </button>
-        )}
-      </aside>
-    </>
-  );
-};
-
-
-const DashBoardDiv = ({ location }: { location: Location }) => {
-  return (
-    <div>
-      <h5>DashBoard</h5>
-      <ul>
-        {sidebarListData.map((item, index) => (
-          <SidebarList
-            key={index}
-            url={item.url}
-            text={item.text}
-            Icon={item.Icon}
-            location={location}
-          />
+    <div className="flex flex-col h-screen bg-gray-800">
+      <div className="flex flex-col items-center lg:items-start space-y-2 p-4 lg:space-y-6 lg:w-64 w-16 overflow-auto flex-grow">
+        <div className="flex items-center justify-center lg:justify-start p-2 w-full mb-6">
+          <FaReact className="text-4xl text-white" />
+          <span className="ml-3 lg:ml-2 text-white text-2xl hidden lg:inline">
+            Admin Panel
+          </span>
+        </div>
+        {sidebarListData.map(({ url, text, Icon }) => (
+          <Link
+            key={url}
+            to={url}
+            className={`flex items-center p-2 rounded-lg w-full ${
+              location.pathname === url
+                ? "text-green-500"
+                : "text-white hover:text-green-500"
+            }`}
+          >
+            <div className="flex items-center justify-center w-12 h-12 lg:w-auto lg:h-auto">
+              <Icon className="text-2xl" />
+            </div>
+            <span className="ml-3 lg:ml-2 hidden lg:inline">{text}</span>
+          </Link>
         ))}
-      </ul>
-    </div>
-  );
-};
-
-const ChartDiv = ({ location }: { location: Location }) => {
-  return (
-    <div>
-      <h5>Charts</h5>
-      <ul>
-        {ChartsData.map((item, index) => (
-          <SidebarList
-            key={index}
-            url={item.url}
-            text={item.text}
-            Icon={item.Icon}
-            location={location}
-          />
+        {ChartsData.map(({ url, text, Icon }) => (
+          <Link
+            key={url}
+            to={url}
+            className={`flex items-center p-2 rounded-lg w-full ${
+              location.pathname === url
+                ? "text-green-500"
+                : "text-white hover:text-green-500"
+            }`}
+          >
+            <div className="flex items-center justify-center w-12 h-12 lg:w-auto lg:h-auto">
+              <Icon className="text-2xl" />
+            </div>
+            <span className="ml-3 lg:ml-2 hidden lg:inline">{text}</span>
+          </Link>
         ))}
-      </ul>
-    </div>
-  );
-};
-
-const AppDiv = ({ location }: { location: Location }) => {
-  return (
-    <div>
-      <h5>App</h5>
-      <ul>
-        {AppsData.map((item, index) => (
-          <SidebarList
-            key={index}
-            url={item.url}
-            text={item.text}
-            Icon={item.Icon}
-            location={location}
-          />
+        {AppsData.map(({ url, text, Icon }) => (
+          <Link
+            key={url}
+            to={url}
+            className={`flex items-center p-2 rounded-lg w-full ${
+              location.pathname === url
+                ? "text-green-500"
+                : "text-white hover:text-green-500"
+            }`}
+          >
+            <div className="flex items-center justify-center w-12 h-12 lg:w-auto lg:h-auto">
+              <Icon className="text-2xl" />
+            </div>
+            <span className="ml-3 lg:ml-2 hidden lg:inline">{text}</span>
+          </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

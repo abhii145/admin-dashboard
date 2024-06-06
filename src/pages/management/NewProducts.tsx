@@ -61,7 +61,9 @@ const NewProducts: React.FC = () => {
           <div>
             <label htmlFor="name">Name:</label>
             <input id="name" {...register("name")} />
-            {errors.name && <p>{errors.name.message}</p>}
+            {errors.name && (
+              <p className="text-red-500 text-xs">{errors.name.message}</p>
+            )}
           </div>
 
           <div>
@@ -72,7 +74,9 @@ const NewProducts: React.FC = () => {
               step="0.01"
               {...register("price", { valueAsNumber: true })}
             />
-            {errors.price && <p>{errors.price.message}</p>}
+            {errors.price && (
+              <p className="text-red-500 text-xs">{errors.price.message}</p>
+            )}
           </div>
 
           <div>
@@ -82,7 +86,9 @@ const NewProducts: React.FC = () => {
               type="number"
               {...register("stock", { valueAsNumber: true })}
             />
-            {errors.stock && <p>{errors.stock.message}</p>}
+            {errors.stock && (
+              <p className="text-red-500 text-xs">{errors.stock.message}</p>
+            )}
           </div>
 
           <div>
@@ -93,7 +99,11 @@ const NewProducts: React.FC = () => {
               {...register("photo")}
               onChange={handleFileChange}
             />
-            {errors.photo && <p>{errors.photo.message?.toString()}</p>}
+            {errors.photo && (
+              <p className="text-red-500 text-xs">
+                {errors.photo.message?.toString()}
+              </p>
+            )}
             {previewUrl && (
               <div>
                 <img

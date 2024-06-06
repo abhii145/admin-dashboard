@@ -80,7 +80,9 @@ const ProductManagement = () => {
           <div>
             <label>Name</label>
             <input type="text" placeholder="Name" {...register("name")} />
-            {errors.name && <p>{errors.name.message}</p>}
+            {errors.name && (
+              <p className="text-red-500 text-xs">{errors.name.message}</p>
+            )}
           </div>
           <div>
             <label>Price</label>
@@ -89,7 +91,9 @@ const ProductManagement = () => {
               placeholder="Price"
               {...register("price", { valueAsNumber: true })}
             />
-            {errors.price && <p>{errors.price.message}</p>}
+            {errors.price && (
+              <p className="text-red-500 text-xs">{errors.price.message}</p>
+            )}
           </div>
           <div>
             <label>Stock</label>
@@ -98,7 +102,9 @@ const ProductManagement = () => {
               placeholder="Stock"
               {...register("stock", { valueAsNumber: true })}
             />
-            {errors.stock && <p>{errors.stock.message}</p>}
+            {errors.stock && (
+              <p className="text-red-500 text-xs">{errors.stock.message}</p>
+            )}
           </div>
 
           <div>
