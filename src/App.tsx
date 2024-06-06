@@ -1,5 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Customers, DashBoard, Products, Transactions } from "./pages";
+import {
+  Customers,
+  DashBoard,
+  NewProducts,
+  ProductManagement,
+  Products,
+  TransactionManagement,
+  Transactions,
+} from "./pages";
 import { Suspense } from "react";
 import Loader from "./components/Loader";
 import Layout from "./pages/Layout";
@@ -14,6 +22,13 @@ const App = () => {
             <Route path="/admin/product" element={<Products />} />
             <Route path="/admin/transactions" element={<Transactions />} />
             <Route path="/admin/customers" element={<Customers />} />
+
+            <Route path="/admin/product/new" element={<NewProducts />} />
+            <Route path="/admin/product/:id" element={<ProductManagement />} />
+            <Route
+              path="/admin/transaction/:id"
+              element={<TransactionManagement />}
+            />
           </Routes>
         </Layout>
       </Suspense>
